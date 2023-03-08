@@ -1,4 +1,4 @@
-# This file is part of the reference implementation for the paper 
+# This file is part of the reference implementation for the paper
 #   Bayesian Collaborative Denoising for Monte-Carlo Rendering
 #   Malik Boughida and Tamy Boubekeur.
 #   Computer Graphics Forum (Proc. EGSR 2017), vol. 36, no. 4, p. 137-153, 2017
@@ -108,8 +108,11 @@ ENDIF(BCD_USE_CUDA)
 #SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 
-SET(bcd_include_folder "${CMAKE_SOURCE_DIR}/include/bcd")
+OPTION(bcd_include_folder "Sets the base include folder")
 
+IF(NOT bcd_include_folder)
+	SET(bcd_include_folder "${CMAKE_SOURCE_DIR}/include/bcd")
+ENDIF()
 
 #MESSAGE(STATUS "Entering subdirectory 'ext'")
 ADD_SUBDIRECTORY(ext)
@@ -119,4 +122,3 @@ ADD_SUBDIRECTORY(src)
 
 
 #INCLUDE(CPack)
-
