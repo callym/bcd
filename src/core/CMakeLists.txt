@@ -29,7 +29,7 @@ SET(missing_optional_libraries "")
 if (NOT OPENMP_FOUND)
 	SET(optional_library_is_missing TRUE)
 	SET(missing_optional_libraries ${missing_optional_libraries} OpenMP)
-endif(NOT OPENMP_FOUND) 
+endif(NOT OPENMP_FOUND)
 
 if (NOT CUDA_FOUND)
 	SET(optional_library_is_missing TRUE)
@@ -97,11 +97,11 @@ ENDIF(CUDA_FOUND)
 TARGET_INCLUDE_DIRECTORIES(${target_name} PUBLIC ${bcd_core_include_folder})
 
 SET_TARGET_PROPERTIES(${target_name} PROPERTIES CXX_STANDARD 11)
+
 if (OPENMP_FOUND)
 TARGET_LINK_LIBRARIES(${target_name} PUBLIC OpenMP)
 endif (OPENMP_FOUND)
-TARGET_LINK_LIBRARIES(${target_name} PRIVATE eigen)
+
+TARGET_LINK_LIBRARIES(${target_name} PRIVATE Eigen3::Eigen)
 
 INSTALL(TARGETS ${target_name} ARCHIVE DESTINATION lib)
-
-

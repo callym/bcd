@@ -32,6 +32,6 @@ SET_TARGET_PROPERTIES(${target_name} PROPERTIES CXX_STANDARD 11)
 
 TARGET_LINK_LIBRARIES(${target_name} PRIVATE ${lib_bcd_core})
 TARGET_LINK_LIBRARIES(${target_name} PRIVATE ${lib_bcd_io})
-TARGET_LINK_LIBRARIES(${target_name} PRIVATE NanoguiTarget)
+TARGET_LINK_LIBRARIES(${target_name} PRIVATE nanogui ${NANOGUI_EXTRA_LIBS})
 
 INSTALL(TARGETS ${target_name} RUNTIME DESTINATION bin)
