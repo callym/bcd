@@ -11,17 +11,14 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8.8)
 PROJECT(BayesianCollaborativeDenoising)
 
 set(CMAKE_MODULE_PATH
-	"${CMAKE_SOURCE_DIR}/cmake"
-	"${CMAKE_SOURCE_DIR}/cmake/Packages"
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake"
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake/Packages"
 )
 
 include(Dependencies)
 
 OPTION(BCD_BUILD_GUI "Build a GUI executable for bcd, using library NanoGUI" ON)
 OPTION(BCD_USE_CUDA "Use CUDA for accelerating computations" ON)
-
-# Add CMake folder to the  module path : contains CMake specific files *.cmake
-SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH} )
 
 # Set the default build to Release.  Note this doesn't do anything for the VS
 # default build target which defaults to Debug when you first start it.
@@ -118,7 +115,7 @@ ENDIF(BCD_USE_CUDA)
 OPTION(bcd_include_folder "Sets the base include folder")
 
 IF(NOT bcd_include_folder)
-	SET(bcd_include_folder "${CMAKE_SOURCE_DIR}/include/bcd")
+	SET(bcd_include_folder "${CMAKE_CURRENT_SOURCE_DIR}/include/bcd")
 ENDIF()
 
 #MESSAGE(STATUS "Entering subdirectory 'src'")
