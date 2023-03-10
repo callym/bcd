@@ -19,6 +19,8 @@ include_directories(BEFORE SYSTEM
 
 find_package(Eigen REQUIRED)
 
-find_package(nanogui REQUIRED)
-include_directories(BEFORE SYSTEM ${nanogui_SOURCE_DIR}/include)
-include_directories(BEFORE SYSTEM ${nanogui_SOURCE_DIR}/ext/nanovg/src)
+if(BCD_BUILD_GUI)
+  find_package(nanogui REQUIRED)
+  include_directories(BEFORE SYSTEM ${nanogui_SOURCE_DIR}/include)
+  include_directories(BEFORE SYSTEM ${nanogui_SOURCE_DIR}/ext/nanovg/src)
+endif()
