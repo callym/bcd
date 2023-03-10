@@ -79,7 +79,7 @@ SET(header_implementation_files
 
 IF(CUDA_FOUND)
 	MESSAGE(STATUS "Using cuda's nvcc for generating ${target_name}")
-	list(APPEND CUDA_NVCC_FLAGS "-arch=sm_20")
+	# list(APPEND CUDA_NVCC_FLAGS "-arch=sm_20")
 	SET(src_files ${src_files} CudaHistogramDistance.cu)
 	SET(header_files
 		${header_files}
@@ -89,6 +89,7 @@ IF(CUDA_FOUND)
 	CUDA_INCLUDE_DIRECTORIES(${bcd_core_include_folder}) # sadly, the TARGET_INCLUDE_DIRECTORIES a few lines below does not work with CUDA, see https://cmake.org/Bug/view.php?id=14201
 	CUDA_ADD_LIBRARY(${target_name} ${src_files} ${header_files} ${header_implementation_files} STATIC)
 	TARGET_COMPILE_DEFINITIONS(${target_name} PRIVATE FOUND_CUDA)
+	set_property(TARGET ${target_name} PROPERTY CUDA_ARCHITECTURES native)
 ELSE(CUDA_FOUND)
 	ADD_LIBRARY(${target_name} STATIC ${src_files} ${header_files} ${header_implementation_files})
 ENDIF(CUDA_FOUND)

@@ -72,7 +72,7 @@ TARGET_INCLUDE_DIRECTORIES(${target_name} PRIVATE ${exr_folder})
 
 SET_TARGET_PROPERTIES(${target_name} PROPERTIES CXX_STANDARD 11)
 TARGET_LINK_LIBRARIES(${target_name} PUBLIC ${lib_bcd_core})
-TARGET_LINK_LIBRARIES(${target_name} PRIVATE IlmImf)
+TARGET_LINK_LIBRARIES(${target_name} PRIVATE OpenEXR::OpenEXR)
 TARGET_LINK_LIBRARIES(${target_name} PRIVATE nlohmann_json::nlohmann_json)
 
 INSTALL(TARGETS ${target_name} ARCHIVE DESTINATION lib)
