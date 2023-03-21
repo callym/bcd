@@ -70,11 +70,6 @@ IF(BCD_USE_CUDA)
 			ENDFOREACH()
 		ENDFOREACH()
 	ENDIF(NOT CUDA_FOUND)
-
-	# Verbose option: put ON to see the whole build command lines
-	IF(CUDA_FOUND)
-		SET(CUDA_VERBOSE_BUILD ON)
-	ENDIF(CUDA_FOUND)
 ENDIF(BCD_USE_CUDA)
 
 OPTION(bcd_include_folder "Sets the base include folder")
